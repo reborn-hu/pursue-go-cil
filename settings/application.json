@@ -1,0 +1,70 @@
+{
+  "appName": "demo",
+  "version": "1.0.0",
+  "doc": true,
+  "jwt": {
+    "issuer": "oauth",
+    "audience": [
+      "demo"
+    ],
+    "accessExpires": 7200,
+    "refreshExpires": 8000,
+    "secret": "L5etiOWdHITNoBkXlxKEJCZ4PY2mjs8h"
+  },
+  "gin": {
+    "address": "0.0.0.0",
+    "port": 50001,
+    "cors": {
+      "origins": [
+        "https://0.0.0.0:50001",
+        "https://0.0.0.0:50002"
+      ],
+      "headers": [
+        "Origin",
+        "Content-Length",
+        "Content-Type",
+        "Authorization"
+      ]
+    }
+  },
+  "logger": {
+    "level": "Debug",
+    "fileName": "logs/app.log",
+    "maxSize": 10,
+    "maxAge": 7,
+    "maxBackup": 7
+  },
+  "dataSource": {
+    "dbType": "MySql",
+    "cipherType": "plaintext",
+    "connectionSettings": {
+      "BaseWrite": "root:mudemima66_@tcp(172.10.10.200:3306)/pursue_db?charset=utf8mb4&parseTime=True&loc=Local",
+      "BaseRead": "root:mudemima66_@tcp(172.10.10.200:3306)/pursue_db?charset=utf8mb4&parseTime=True&loc=Local",
+      "BizWrite": "",
+      "BizRead": ""
+    },
+    "pooling": {
+      "MaxIdle": "20",
+      "MaxOpen": "100",
+      "lifetime": "60s"
+    }
+  },
+  "redisSource": {
+    "prefix": "demo",
+    "connectType": "Single",
+    "masterName": "myMaster",
+    "connectionSettings": {
+      "default": {
+        "password": "mudemima66_",
+        "database": 5,
+        "poolSize": 20,
+        "endpoints": [
+          {
+            "host": "172.10.10.200",
+            "port": 6379
+          }
+        ]
+      }
+    }
+  }
+}

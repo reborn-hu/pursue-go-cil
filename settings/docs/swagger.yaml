@@ -1,0 +1,123 @@
+basePath: /
+definitions:
+  user.UserManageDetails:
+    type: object
+  user.UserManageReq:
+    properties:
+      accessExpires:
+        description: accessToken有效时间
+        type: integer
+      audience:
+        description: 授信应用Code或域名
+        type: string
+      key:
+        description: 应用Key
+        type: string
+      name:
+        description: 授信应用名称
+        type: string
+      refreshExpires:
+        description: refreshToken有效时间
+        type: integer
+    required:
+    - audience
+    - key
+    - name
+    type: object
+host: localhost:50001
+info:
+  contact: {}
+  description: API接口文档
+  title: API接口文档
+  version: "1.0"
+paths:
+  /api/user/autoMigrate:
+    post:
+      consumes:
+      - application/json
+      description: AutoMigrateHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 回调对象
+          schema:
+            type: object
+      summary: 创建数据表
+      tags:
+      - AutoMigrateHandler
+  /api/user/create:
+    post:
+      consumes:
+      - application/json
+      description: CreateUserManageHandler
+      parameters:
+      - description: 授权请求对象
+        in: body
+        name: Authorize
+        required: true
+        schema:
+          $ref: '#/definitions/user.UserManageReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 回调对象
+          schema:
+            type: object
+      summary: 授权应用管理
+      tags:
+      - CreateUserManageHandler
+  /api/user/query:
+    get:
+      consumes:
+      - application/json
+      description: QueryUserManageListHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 回调对象
+          schema:
+            type: object
+      summary: 查询授权应用列表
+      tags:
+      - QueryUserManageListHandler
+  /api/user/query/:page/:size:
+    get:
+      consumes:
+      - application/json
+      description: QueryUserManagePageHandler
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 回调对象
+          schema:
+            type: object
+      summary: 查询授权应用分页列表
+      tags:
+      - QueryUserManagePageHandler
+  /api/user/update:
+    post:
+      consumes:
+      - application/json
+      description: UpdateUserManageHandler
+      parameters:
+      - description: 授权请求对象
+        in: body
+        name: Authorize
+        required: true
+        schema:
+          $ref: '#/definitions/user.UserManageDetails'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 回调对象
+          schema:
+            type: object
+      summary: 授权应用管理
+      tags:
+      - UpdateUserManageHandler
+swagger: "2.0"
