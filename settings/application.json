@@ -38,8 +38,8 @@
     "dbType": "MySql",
     "cipherType": "plaintext",
     "connectionSettings": {
-      "BaseWrite": "root:mudemima66_@tcp(172.10.10.200:3306)/pursue_db?charset=utf8mb4&parseTime=True&loc=Local",
-      "BaseRead": "root:mudemima66_@tcp(172.10.10.200:3306)/pursue_db?charset=utf8mb4&parseTime=True&loc=Local",
+      "BaseWrite": "xxxx:xxxxxx@tcp(localhost:3306)/xxxxxx?charset=utf8mb4&parseTime=True&loc=Local",
+      "BaseRead": "xxxx:xxxxxx@tcp(localhost:3306)/xxxxxx?charset=utf8mb4&parseTime=True&loc=Local",
       "BizWrite": "",
       "BizRead": ""
     },
@@ -55,12 +55,12 @@
     "masterName": "myMaster",
     "connectionSettings": {
       "default": {
-        "password": "mudemima66_",
+        "password": "xxxxxx",
         "database": 5,
         "poolSize": 20,
         "endpoints": [
           {
-            "host": "172.10.10.200",
+            "host": "localhost",
             "port": 6379
           }
         ]
